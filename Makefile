@@ -4,7 +4,6 @@ SHELL:=/usr/bin/env bash
 lint:
 	mypy tomsk_fp_feb2020 tests/**/*.py
 	flake8 .
-	doc8 -q docs
 
 .PHONY: unit
 unit:
