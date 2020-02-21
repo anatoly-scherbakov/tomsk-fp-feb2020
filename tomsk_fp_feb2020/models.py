@@ -7,6 +7,9 @@ from typing import Set, NewType
 # ICAO code of an aerodrome
 ICAOCode = NewType('ICAOCode', str)
 
+Meters = NewType('Meters', float)
+Kilometers = NewType('Kilometers', float)
+
 
 @dataclasses.dataclass(frozen=True)
 class Location:
@@ -30,10 +33,9 @@ class RunwayMaterial(str, Enum):
 class Runway:
     """Surface for landing and takeoff."""
 
+    name: str
     material: RunwayMaterial
-
-    length: int
-    """Runway length, in meters"""
+    length: Meters
 
 
 @dataclasses.dataclass(frozen=True)
@@ -53,8 +55,9 @@ class Vehicle:
 
     name: str
 
-    minimum_runway_length: int
-    """In meters."""
+    minimum_runway_length: Meters
+
+    max_flight_distance: Kilometers
 
     allowed_runway_materials: Set[RunwayMaterial]
 
@@ -66,6 +69,8 @@ class Flight:
     origin: Aerodrome
     destination: Aerodrome
 
-    distance: float
+    distance: Kilometers
+
+    vehicle: Vehicle
 
     departure_time: datetime.datetime

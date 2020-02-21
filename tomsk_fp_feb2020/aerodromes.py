@@ -1,9 +1,9 @@
+import logging
+import os
 import pathlib
 
 import pandas as pd
 import requests
-
-import logging
 
 logger = logging.getLogger(__name__)
 
@@ -14,8 +14,10 @@ LOCAL_PATH = pathlib.Path(__file__).parent.parent.joinpath(
 )
 
 
-def download_aerodromes_database():
+def download_aerodromes_database() -> None:
     """Download the Airports CSV file to local data/ directory."""
+    os.makedirs(LOCAL_PATH.parent, exist_ok=True)
+
     response = requests.get(REMOTE_URL, stream=True)
 
     with open(LOCAL_PATH, 'wb+') as output:
