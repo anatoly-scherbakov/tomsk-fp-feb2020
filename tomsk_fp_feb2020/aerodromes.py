@@ -3,6 +3,10 @@ import pathlib
 import pandas as pd
 import requests
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 REMOTE_URL = 'http://ourairports.com/data/airports.csv'
 LOCAL_PATH = pathlib.Path(__file__).parent.parent.joinpath(
@@ -19,5 +23,12 @@ def download_aerodromes_database():
             output.write(chunk)
 
 
-def aerodromes_data_frame():
-    return pd.read_csv(LOCAL_PATH)
+def aerodromes_data_frame() -> pd.DataFrame:
+    try:
+        logger.info('Downloading aerodromes database from OurAirports...')
+        return pd.read_csv(LOCAL_PATH)
+
+    except FileNotFoundError:
+        download_aerodromes_database()
+
+        return aerodromes_data_frame()

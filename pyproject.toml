@@ -31,8 +31,8 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.8"
 geopy = "^1.21.0"
-pandas = "^1.0.1"
 requests = "^2.23.0"
+pandas = "^1.0.1"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.750"
@@ -54,3 +54,4 @@ doc8 = "^0.8"
 m2r = "^0.2"
 tomlkit = "^0.5"
 pre-commit = "^2.1.0"
+ipython = "^7.12.0"

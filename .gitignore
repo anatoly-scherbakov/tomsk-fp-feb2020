@@ -214,4 +214,4 @@ crashlytics-build.properties
 fabric.properties
 
 # Downloadable data
-data/airports.csv
+data/aerodromes.csv
