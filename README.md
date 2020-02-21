@@ -27,7 +27,7 @@ pip install tomsk-fp-feb2020
 Showcase how your project can be used:
 
 ```python
-from tomsk_fp_feb2020.example import some_function
+from tomsk_fp_feb2020.services import some_function
 
 print(some_function(3, 4))
 # => 7

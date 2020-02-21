@@ -29,7 +29,10 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.8"
+geopy = "^1.21.0"
+pandas = "^1.0.1"
+requests = "^2.23.0"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.750"

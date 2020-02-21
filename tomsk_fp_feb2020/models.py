@@ -1,7 +1,11 @@
 import dataclasses
 import datetime
 from enum import Enum
-from typing import Set
+from typing import Set, NewType
+
+
+# ICAO code of an aerodrome
+ICAOCode = NewType('ICAOCode', str)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -37,6 +41,7 @@ class Aerodrome:
     """Aerodrome is a place where a plane can land and take off."""
 
     name: str
+    code: ICAOCode
     location: Location
     runways: Set[Runway]
     is_active: bool
