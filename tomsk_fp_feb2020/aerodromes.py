@@ -89,6 +89,5 @@ def get_aerodrome_by_iata_code(code: str) -> Optional[models.Aerodrome]:
             name=row['name'],
             code=models.IATACode(row['iata_code']),
             location=location,
-            runways=set(),
             is_active=True,
         )

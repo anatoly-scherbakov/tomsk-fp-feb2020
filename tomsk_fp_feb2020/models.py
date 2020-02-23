@@ -1,7 +1,6 @@
 import dataclasses
 import datetime
-from enum import Enum
-from typing import Set, NewType
+from typing import NewType
 
 
 # ICAO code of an aerodrome
@@ -19,25 +18,6 @@ class Location:
     longitude: float
 
 
-class RunwayMaterial(str, Enum):
-    """Composition of runway surface."""
-
-    ASPHALT = 'asphalt'
-    CONCRETE = 'concrete'
-    GRASS = 'grass'
-    ICE = 'ice'
-    WATER = 'water'
-
-
-@dataclasses.dataclass(frozen=True)
-class Runway:
-    """Surface for landing and takeoff."""
-
-    name: str
-    material: RunwayMaterial
-    length: Meters
-
-
 @dataclasses.dataclass(frozen=True)
 class Aerodrome:
     """Aerodrome is a place where a plane can land and take off."""
@@ -45,7 +25,6 @@ class Aerodrome:
     name: str
     code: IATACode
     location: Location
-    runways: Set[Runway]
     is_active: bool
 
 
@@ -58,8 +37,6 @@ class Vehicle:
     minimum_runway_length: Meters
 
     max_flight_distance: Kilometers
-
-    allowed_runway_materials: Set[RunwayMaterial]
 
 
 @dataclasses.dataclass(frozen=True)
