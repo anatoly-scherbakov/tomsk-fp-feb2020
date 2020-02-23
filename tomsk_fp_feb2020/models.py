@@ -5,7 +5,7 @@ from typing import Set, NewType
 
 
 # ICAO code of an aerodrome
-ICAOCode = NewType('ICAOCode', str)
+IATACode = NewType('IATACode', str)
 
 Meters = NewType('Meters', float)
 Kilometers = NewType('Kilometers', float)
@@ -43,7 +43,7 @@ class Aerodrome:
     """Aerodrome is a place where a plane can land and take off."""
 
     name: str
-    code: ICAOCode
+    code: IATACode
     location: Location
     runways: Set[Runway]
     is_active: bool
